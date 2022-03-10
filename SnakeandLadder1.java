@@ -62,11 +62,7 @@ public String ladder() {
 	public int calculatePlayerValue(int player, int diceValue)
 	{
 		player = player + diceValue;
-		if(player > WINPOINT)
-		{
-			player = player - diceValue;
-			return player;
-		}
+		
 		if(null!=snake())
 		{
 			System.out.println("swallowed by snake");
