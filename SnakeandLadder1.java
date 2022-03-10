@@ -32,7 +32,7 @@ public String ladder() {
 }
 	public void startGame()
 	{
-		int player1 =0;
+		int player1 =0, player2=0;
 		int currentPlayer=-1;
 		Scanner s = new Scanner(System.in);
 		String str;
@@ -48,6 +48,7 @@ public String ladder() {
 			{
 				player1 = calculatePlayerValue(player1,diceValue);
 				System.out.println("First Player :: " + player1);
+				System.out.println("Second Player :: " + player2);
 				System.out.println("------------------");
 				count++;
 				System.out.println("No of Dice Played :" +count);
@@ -58,9 +59,24 @@ public String ladder() {
 					return;
 				}
 			}
+				else{
+					player2 = calculatePlayerValue(player2,diceValue);
+					System.out.println("First Player :: " + player1);
+					System.out.println("Second Player :: " + player2);
+					System.out.println("------------------");
+					count++;
+					System.out.println("No of Dice Played :" +count);
+					if(isWin(player2))
+					{
+						System.out.println("Second player wins");
+						return;
+					}
+			}
+		
 			currentPlayer= -currentPlayer;	
-		}   while("r".equals(str));
-	}
+	}while("r".equals(str));
+}
+	
 	public int calculatePlayerValue(int player, int diceValue)
 	{
 		player = player + diceValue;
